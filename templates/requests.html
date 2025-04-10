@@ -1,0 +1,43 @@
+{% extends "base.html" %} <!-- Extend the base.html template to reuse the layout -->
+{% block title %}Requests - Sandesh Portfolio{% endblock %} <!-- Set the title for the page -->
+
+{% block content %} <!-- Start the content block to insert page-specific content -->
+<h1 class="text-center mt-5">All Requests</h1> <!-- Page heading, centered with a top margin -->
+<hr> <!-- Horizontal line for separation -->
+
+{% if contacts %} <!-- Check if there are any contacts to display -->
+<div class="table-responsive"> <!-- Make the table responsive for smaller screens -->
+    <table class="table table-striped mt-4"> <!-- Create a striped table with a top margin -->
+        <thead> <!-- Table header -->
+            <tr>
+                <th>ID</th> <!-- Column for contact ID -->
+                <th>Name</th> <!-- Column for contact name -->
+                <th>Email</th> <!-- Column for contact email -->
+                <th>Subject</th> <!-- Column for contact subject -->
+                <th>Message</th> <!-- Column for contact message -->
+                <th>Delete</th> <!-- Column for delete action -->
+            </tr>
+        </thead>
+        <tbody> <!-- Table body to display contact data -->
+            {% for contact in contacts %} <!-- Loop through the list of contacts passed from the Flask app -->
+            <tr>
+                <td>{{ contact.id }}</td> <!-- Display the contact ID -->
+                <td>{{ contact.name }}</td> <!-- Display the contact name -->
+                <td>{{ contact.email }}</td> <!-- Display the contact email -->
+                <td>{{ contact.subject }}</td> <!-- Display the contact subject -->
+                <td>{{ contact.message }}</td> <!-- Display the contact message -->
+                <td>
+                    <!-- Delete link calls /delete/<id> -->
+                    <a href="{{ url_for('delete_contact', contact_id=contact.id) }}" class="btn btn-danger btn-sm">
+                        Delete <!-- Button to delete the contact -->
+                    </a>
+                </td>
+            </tr>
+            {% endfor %} <!-- End the loop for contacts -->
+        </tbody>
+    </table>
+</div>
+{% else %} <!-- If no contacts are found -->
+<p>No contact requests found.</p> <!-- Display a message indicating no contacts -->
+{% endif %} <!-- End the if condition -->
+{% endblock %} <!-- End the content block -->

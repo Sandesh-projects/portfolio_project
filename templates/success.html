@@ -1,0 +1,20 @@
+{% extends "base.html" %} <!-- Extend the base.html template to reuse the layout -->
+{% block title %}Success - Sandesh Portfolio{% endblock %} <!-- Set the title for the page -->
+
+{% block content %} <!-- Start the content block to insert page-specific content -->
+<h1 class="text-center mt-5">Thank You!</h1> <!-- Page heading, centered with a top margin -->
+<p class="text-center">Your message has been received. Here are the details:</p> <!-- Message to confirm receipt -->
+
+<ul class="list-group mx-auto" style="max-width: 600px;">
+    <!-- Unordered list to display submitted details, centered with a max width -->
+    <li class="list-group-item"><strong>Name:</strong> {{ name }}</li> <!-- Display the submitted name -->
+    <li class="list-group-item"><strong>Email:</strong> {{ email }}</li> <!-- Display the submitted email -->
+    <li class="list-group-item"><strong>Subject:</strong> {{ subject }}</li> <!-- Display the submitted subject -->
+    <li class="list-group-item"><strong>Message:</strong> {{ message }}</li> <!-- Display the submitted message -->
+</ul>
+
+<div class="text-center mt-3"> <!-- Center the button with a top margin -->
+    <a href="{{ url_for('home') }}" class="btn btn-primary">Go Back</a>
+    <!-- Button to navigate back to the home page -->
+</div>
+{% endblock %} <!-- End the content block -->

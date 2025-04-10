@@ -1,0 +1,27 @@
+{% extends "base.html" %} <!-- Extend the base.html template to reuse the layout defined in base.html -->
+{% block title %}Portfolio - Sandesh Portfolio{% endblock %} <!-- Set the title for the page -->
+
+{% block content %} <!-- Start the content block to insert page-specific content -->
+<h1 class="text-center mt-5">Projects</h1> <!-- Page heading, centered with a top margin -->
+<div class="row"> <!-- Create a row for layout to organize project cards -->
+
+    {% for project in projects %} <!-- Loop through the list of projects passed from the Flask app -->
+    <div class="col-lg-4 mt-4"> <!-- Create a column for each project card with a top margin -->
+        <div class="card"> <!-- Create a card to display project details -->
+            <!-- Display the project image from the `projects` list -->
+            <img class="card-img-top" src="{{ url_for('static', filename='images/' ~ project.image) }}"
+                alt="{{ project.title }}" style="width:100%" height="200"> <!-- Set image width and height -->
+            <div class="card-body"> <!-- Card body to hold project details -->
+                <h4 class="card-title">{{ project.title }}</h4> <!-- Display the project title -->
+                <p class="card-text">{{ project.description }}</p> <!-- Display the project description -->
+                <div class="text-center"> <!-- Center the button -->
+                    <!-- Link to the project, opens in a new tab -->
+                    <a href="{{ project.link }}" target="_blank" class="btn btn-success">View Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %} <!-- End the loop for projects -->
+
+</div> <!-- End the row -->
+{% endblock %} <!-- End the content block -->

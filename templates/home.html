@@ -1,0 +1,39 @@
+{% extends "base.html" %} <!-- Extend the base.html template to reuse the layout -->
+{% block title %}Home - Sandesh Portfolio{% endblock %} <!-- Set the title for the page -->
+
+{% block content %} <!-- Start the content block to insert page-specific content -->
+
+<!-- Hero Section with Background Image (moon.jpg) -->
+<br> <!-- Add a line break for spacing -->
+
+<!-- About Me Section -->
+<section id="about" class="mt-5"> <!-- Section for the "About Me" content with top margin -->
+    <h1 class="text-center">About Me</h1> <!-- Section heading, centered -->
+    <div class="row mt-4"> <!-- Create a row for layout with top margin -->
+        <div class="col-md-4"> <!-- Column for the profile image -->
+            <!-- Reference your profile image -->
+            <img src="{{ url_for('static', filename='images/1718978166560.jpeg') }}" class="img-fluid imageAboutPage"
+                alt="Sandesh"> <!-- Display the profile image with responsive styling -->
+        </div>
+        <div class="col-md-8"> <!-- Column for the "About Me" text -->
+            <p>
+                I am a third-year IT student at VESIT (Vivekanand Education Society's Institute of Technology),
+                pursuing a Bachelor's degree in Information Technology. I enjoy coding, exploring new technologies,
+                and solving challenging problems. My focus areas include web development, data structures, and
+                software engineering best practices.
+            </p> <!-- Paragraph describing education and interests -->
+            <ul> <!-- Unordered list for personal details -->
+                <li><strong>Name:</strong> Sandesh Yadav</li> <!-- Display name -->
+                <li><strong>Age:</strong> 20</li> <!-- Display age -->
+                <li><strong>Occupation:</strong> IT Student</li> <!-- Display occupation -->
+            </ul>
+            <p>
+                Currently, I'm working on various projects to sharpen my skills and gain real-world experience.
+                Outside of academics, I love reading about cutting-edge tech, contributing to open-source projects,
+                and collaborating with peers to build innovative solutions.
+            </p> <!-- Paragraph describing current activities and hobbies -->
+        </div>
+    </div>
+</section>
+
+{% endblock %} <!-- End the content block -->
